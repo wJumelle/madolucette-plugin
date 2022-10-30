@@ -1,2 +1,2 @@
-# madolucette-plugin
-Plugin pour ajouter des blocs pour le site Madeleine et Lucette
+# Madeleine et Lucette - FAQ conteneur
+Plugin pour ajouter le conteneur de la FAQ pour le site Madeleine et Lucette
