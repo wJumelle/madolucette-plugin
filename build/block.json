@@ -1,16 +1,16 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 2,
-  "name": "create-block/gutenpride",
+  "name": "create-block/mel-additional-blocks",
   "version": "0.1.0",
-  "title": "Gutenpride",
+  "title": "MeL Plugin",
   "category": "widgets",
   "icon": "smiley",
-  "description": "Example block scaffolded with Create Block tool.",
+  "description": "Ajout de blocs supplémentaires pour le site Madeleine et Lucette.",
   "supports": {
     "html": false
   },
-  "textdomain": "gutenpride",
+  "textdomain": "melplugin",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css"
