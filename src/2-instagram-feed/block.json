@@ -1,0 +1,28 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "mel/instagram-feed",
+	"version": "0.0.1",
+	"title": "MeL Instagram Feed",
+	"category": "common",
+	"description": "Élément permettant de paramétrer le feed Instagram à afficher.",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"question": {
+			"type": "string",
+			"source": "html",
+			"selector": "h2"
+		},
+		"reponse": {
+			"type": "string",
+			"source": "html",
+			"selector": "div"
+		}
+	},
+	"textdomain": "melplugin",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}
