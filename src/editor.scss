@@ -4,5 +4,21 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-mel-faq-elem input[type="text"] {
+.wp-block-mel-faq-elem .components-placeholder__fieldset {
+	flex-direction: column;
+}
+
+.wp-block-mel-faq-elem .components-placeholder__fieldset > * {
+	width: 100%;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.editor-styles-wrapper .wp-block-mel-faq-elem fieldset,
+.editor-styles-wrapper .wp-block-mel-faq-elem fieldset legend {
+	background: none;
+}
+
+.wp-block-mel-faq-elem .components-placeholder__label {
+	margin-bottom: 0;
 }

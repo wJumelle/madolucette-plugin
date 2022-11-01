@@ -22,9 +22,9 @@ import { useBlockProps, RichText } from "@wordpress/block-editor";
 import "./editor.scss";
 
 /**
- * Loading TextControl library for learning how to build a block
+ * Loading Placeholder library for learning how to build a block
  */
-import { TextControl, Placeholder } from "@wordpress/components";
+import { Placeholder } from "@wordpress/components";
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -69,8 +69,8 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 					<RichText
 						{...blockProps}
 						tagName="h2" // Notre question
+						className="mel-faq-elem--question"
 						value={attributes.question}
-						//allowedFormats={["core/bold", "core/italic"]}
 						onChange={(question) => setAttributes({ question })} // Store updated content as a block attribute
 						placeholder={__("Question...")}
 					/>
@@ -78,8 +78,9 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 					<RichText
 						{...blockProps}
 						tagName="div" // Notre réponse
+						multiline="p"
+						className="mel-faq-elem--reponse"
 						value={attributes.reponse}
-						//allowedFormats={["core/bold", "core/italic"]} // Allow the content to be made bold or italic, but do not allow other formatting options
 						onChange={(reponse) => setAttributes({ reponse })} // Store updated content as a block attribute
 						placeholder={__("Réponse...")}
 					/>

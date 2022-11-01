@@ -19,17 +19,19 @@ export default function save({ attributes }) {
 	const blockProps = useBlockProps.save();
 
 	return (
-		<div {...useBlockProps()}>
+		<div className="mel-faq-elem">
 			<RichText.Content
 				{...blockProps}
 				tagName="h2"
 				value={attributes.question}
+				className="mel-faq-elem--question"
 			/>
 
 			<RichText.Content
 				{...blockProps}
 				tagName="div"
 				value={attributes.reponse}
+				className="mel-faq-elem--reponse"
 			/>
 		</div>
 	);

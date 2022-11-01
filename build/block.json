@@ -5,7 +5,6 @@
   "version": "0.0.1",
   "title": "MeL FAQ élément",
   "category": "common",
-  "icon": "smiley",
   "description": "Élément permettant de saisir une question et une réponse.",
   "supports": {
     "html": false
