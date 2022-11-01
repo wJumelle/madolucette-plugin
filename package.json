@@ -1,7 +1,7 @@
 {
-	"name": "mel-additional-blocks",
+	"name": "faq-elem",
 	"version": "0.0.1",
-	"description": "Ajout de blocs supplémentaires pour le site Madeleine et Lucette.",
+	"description": "Élément permettant de saisir une question et une réponse.",
 	"author": "Wilfried JUMELLE",
 	"license": "GPL-2.0-or-later",
 	"main": "build/index.js",

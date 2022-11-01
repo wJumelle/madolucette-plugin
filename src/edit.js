@@ -11,7 +11,7 @@ import { __ } from "@wordpress/i18n";
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from "@wordpress/block-editor";
+import { useBlockProps, RichText } from "@wordpress/block-editor";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -24,7 +24,7 @@ import "./editor.scss";
 /**
  * Loading TextControl library for learning how to build a block
  */
-import { TextControl } from "@wordpress/components";
+import { TextControl, Placeholder } from "@wordpress/components";
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -34,14 +34,57 @@ import { TextControl } from "@wordpress/components";
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit({ attributes, setAttributes }) {
+export default function Edit({ attributes, isSelected, setAttributes }) {
+	const blockProps = useBlockProps();
 	return (
 		<div {...useBlockProps()}>
-			<TextControl
-				label={__("Votre joli message", "melplugin")}
-				value={attributes.message}
-				onChange={(val) => setAttributes({ message: val })}
-			/>
+			{attributes.question && attributes.reponse && !isSelected ? (
+				<div>
+					<RichText
+						{...blockProps}
+						tagName="h2" // Notre question
+						value={attributes.question}
+						//allowedFormats={["core/bold", "core/italic"]}
+						onChange={(question) => setAttributes({ question })} // Store updated content as a block attribute
+						placeholder={__("Question...")}
+					/>
+
+					<RichText
+						{...blockProps}
+						tagName="div" // Notre réponse
+						value={attributes.reponse}
+						//allowedFormats={["core/bold", "core/italic"]} // Allow the content to be made bold or italic, but do not allow other formatting options
+						onChange={(reponse) => setAttributes({ reponse })} // Store updated content as a block attribute
+						placeholder={__("Réponse...")}
+					/>
+				</div>
+			) : (
+				<Placeholder
+					label={__("Création d'un nouvel élément de la FAQ", "melplugin")}
+					instructions={__(
+						"Ajoutez votre question puis votre réponse",
+						"melplugin"
+					)}
+				>
+					<RichText
+						{...blockProps}
+						tagName="h2" // Notre question
+						value={attributes.question}
+						//allowedFormats={["core/bold", "core/italic"]}
+						onChange={(question) => setAttributes({ question })} // Store updated content as a block attribute
+						placeholder={__("Question...")}
+					/>
+
+					<RichText
+						{...blockProps}
+						tagName="div" // Notre réponse
+						value={attributes.reponse}
+						//allowedFormats={["core/bold", "core/italic"]} // Allow the content to be made bold or italic, but do not allow other formatting options
+						onChange={(reponse) => setAttributes({ reponse })} // Store updated content as a block attribute
+						placeholder={__("Réponse...")}
+					/>
+				</Placeholder>
+			)}
 		</div>
 	);
 }

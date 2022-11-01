@@ -4,7 +4,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from "@wordpress/block-editor";
+import { useBlockProps, RichText } from "@wordpress/block-editor";
 
 /**
  * The save function defines the way in which the different attributes should
@@ -17,5 +17,20 @@ import { useBlockProps } from "@wordpress/block-editor";
  */
 export default function save({ attributes }) {
 	const blockProps = useBlockProps.save();
-	return <div {...blockProps}>{attributes.message}</div>;
+
+	return (
+		<div {...useBlockProps()}>
+			<RichText.Content
+				{...blockProps}
+				tagName="h2"
+				value={attributes.question}
+			/>
+
+			<RichText.Content
+				{...blockProps}
+				tagName="div"
+				value={attributes.reponse}
+			/>
+		</div>
+	);
 }

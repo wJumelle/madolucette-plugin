@@ -1,21 +1,25 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 2,
-  "name": "create-block/mel-additional-blocks",
-  "version": "0.1.0",
-  "title": "MeL Plugin",
-  "category": "layout",
+  "name": "mel/faq-elem",
+  "version": "0.0.1",
+  "title": "MeL FAQ élément",
+  "category": "common",
   "icon": "smiley",
-  "description": "Ajout de blocs supplémentaires pour le site Madeleine et Lucette.",
+  "description": "Élément permettant de saisir une question et une réponse.",
   "supports": {
     "html": false
   },
   "attributes": {
-    "message": {
+    "question": {
       "type": "string",
-      "source": "text",
-      "selector": "div",
-      "default": ""
+      "source": "html",
+      "selector": "h2"
+    },
+    "reponse": {
+      "type": "string",
+      "source": "html",
+      "selector": "div"
     }
   },
   "textdomain": "melplugin",
