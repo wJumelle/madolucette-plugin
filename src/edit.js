@@ -22,6 +22,11 @@ import { useBlockProps } from "@wordpress/block-editor";
 import "./editor.scss";
 
 /**
+ * Loading TextControl library for learning how to build a block
+ */
+import { TextControl } from "@wordpress/components";
+
+/**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
  *
@@ -29,10 +34,14 @@ import "./editor.scss";
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit() {
+export default function Edit({ attributes, setAttributes }) {
 	return (
-		<p {...useBlockProps()}>
-			{__("MeL – hello from the editor!", "melplugin")}
-		</p>
+		<div {...useBlockProps()}>
+			<TextControl
+				label={__("Votre joli message", "melplugin")}
+				value={attributes.message}
+				onChange={(val) => setAttributes({ message: val })}
+			/>
+		</div>
 	);
 }
