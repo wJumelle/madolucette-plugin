@@ -15,7 +15,11 @@ import { useBlockProps, RichText } from "@wordpress/block-editor";
  *
  * @return {WPElement} Element to render.
  */
-export default function save({ attributes }) {
+export default function save(props) {
+	const { attributes } = props;
+	const { blockId } = attributes;
+	const idArray = blockId.split("-");
+	const id = `faq-${idArray[0]}`;
 	const blockProps = useBlockProps.save();
 
 	return (
@@ -25,6 +29,9 @@ export default function save({ attributes }) {
 				tagName="h2"
 				value={attributes.question}
 				className="mel-faq-elem--question"
+				aria-role="button"
+				aria-controls={id}
+				aria-expanded="false"
 			/>
 
 			<RichText.Content
@@ -32,6 +39,7 @@ export default function save({ attributes }) {
 				tagName="div"
 				value={attributes.reponse}
 				className="mel-faq-elem--reponse"
+				id={id}
 			/>
 		</div>
 	);

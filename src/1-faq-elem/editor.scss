@@ -4,6 +4,14 @@
  * Replace them with your own styles or remove the file completely.
  */
 
+.editor-styles-wrapper,
+.editor-styles-wrapper::before,
+.editor-styles-wrapper::after,
+h2.block-editor-rich-text__editable,
+div.block-editor-rich-text__editable {
+	box-sizing: border-box;
+}
+
 .wp-block-mel-faq-elem .components-placeholder__fieldset {
 	flex-direction: column;
 }
@@ -20,5 +28,71 @@
 }
 
 .wp-block-mel-faq-elem .components-placeholder__label {
+	margin-bottom: 0;
+}
+
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.mel-faq-elem {
+	border-radius: 20px;
+	border: 4px solid #e8e8e8;
+	overflow: hidden;
+}
+
+h2.block-editor-rich-text__editable,
+.editor-styles-wrapper .mel-faq-elem h2 {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	background: #e8e8e8;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	font-size: 20px;
+}
+
+.mel-faq-elem h2::after {
+	content: "";
+	display: block;
+	width: 32px;
+	height: 32px;
+	background-image: url(../../assets/img/faq-icon.svg);
+	background-repeat: none;
+	background-size: cover;
+	transition: transform 0.25s ease-in-out;
+}
+
+.mel-faq-elem h2[aria-expanded="false"]::after {
+	transform: rotate(-90deg);
+}
+
+.mel-faq-elem h2[aria-expanded="true"]::after {
+	transform: rotate(-45deg);
+}
+
+.mel-faq-elem h2,
+.mel-faq-elem div {
+	margin: 0 !important;
+	padding: 24px 32px;
+}
+
+.components-placeholder__fieldset .mel-faq-elem--reponse {
+	padding: 24px 0;
+}
+
+.mel-faq-elem div {
+	font-size: 16px;
+}
+
+.block-editor-block-list__layout
+	h2.block-editor-block-list__block.wp-block-mel-faq-elem::after {
+	position: relative;
+}
+
+.editor-styles-wrapper .wp-block-mel-faq-elem p:last-child {
 	margin-bottom: 0;
 }

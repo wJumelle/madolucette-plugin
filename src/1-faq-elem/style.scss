@@ -4,3 +4,54 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
+
+.mel-faq-elem {
+	border-radius: 20px;
+	border: 4px solid #e8e8e8;
+	overflow: hidden;
+	margin-bottom: 20px;
+}
+
+.mel-faq-elem--question {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	background: #e8e8e8;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	font-size: 20px;
+}
+
+.mel-faq-elem--question::after {
+	content: "";
+	display: block;
+	width: 32px;
+	height: 32px;
+	background-image: url(../../assets/img/faq-icon.svg);
+	background-repeat: none;
+	background-size: cover;
+	transition: transform 0.25s ease-in-out;
+}
+
+.mel-faq-elem--question[aria-expanded="false"]::after {
+	transform: rotate(-90deg);
+}
+
+.mel-faq-elem--question[aria-expanded="true"]::after {
+	transform: rotate(-45deg);
+}
+
+.mel-faq-elem--question[aria-expanded="false"] + .mel-faq-elem--reponse {
+	display: none;
+}
+
+.mel-faq-elem--question,
+.mel-faq-elem--reponse {
+	margin: 0 !important;
+	padding: 24px 32px;
+}
+
+.mel-faq-elem--reponse {
+	font-size: 16px;
+}

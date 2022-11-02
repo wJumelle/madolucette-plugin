@@ -34,17 +34,28 @@ import { Placeholder } from "@wordpress/components";
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit({ attributes, isSelected, setAttributes }) {
+
+import { useEffect } from "react";
+
+export default function Edit(props) {
+	const { attributes, isSelected, setAttributes, clientId } = props;
+	const { blockId } = attributes;
 	const blockProps = useBlockProps();
+
+	useEffect(() => {
+		if (!blockId) {
+			setAttributes({ blockId: clientId });
+		}
+	}, []);
+
 	return (
 		<div {...useBlockProps()}>
 			{attributes.question && attributes.reponse && !isSelected ? (
-				<div>
+				<div className="mel-faq-elem">
 					<RichText
 						{...blockProps}
 						tagName="h2" // Notre question
 						value={attributes.question}
-						//allowedFormats={["core/bold", "core/italic"]}
 						onChange={(question) => setAttributes({ question })} // Store updated content as a block attribute
 						placeholder={__("Question...")}
 					/>
@@ -53,7 +64,6 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 						{...blockProps}
 						tagName="div" // Notre réponse
 						value={attributes.reponse}
-						//allowedFormats={["core/bold", "core/italic"]} // Allow the content to be made bold or italic, but do not allow other formatting options
 						onChange={(reponse) => setAttributes({ reponse })} // Store updated content as a block attribute
 						placeholder={__("Réponse...")}
 					/>
