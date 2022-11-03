@@ -21,6 +21,8 @@
 	border-bottom-left-radius: 15px;
 	border-bottom-right-radius: 15px;
 	font-size: 20px;
+	user-select: none;
+	cursor: pointer;
 }
 
 .mel-faq-elem--question::after {
