@@ -25,8 +25,3 @@ function create_blocks_mel_block_init() {
 	register_block_type( __DIR__ . '/build/2-instagram-feed' );
 }
 add_action( 'init', 'create_blocks_mel_block_init' );
-
-function mel_blocks_scripts() {
-    wp_enqueue_script( 'mel-block-faq', plugins_url( '/src/1-faq-elem/script.js' , __FILE__ ));
-}
-add_action( 'wp_enqueue_scripts', 'mel_blocks_scripts' );

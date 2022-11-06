@@ -68,7 +68,7 @@ export default function Edit(props) {
 						placeholder={__("Réponse...")}
 					/>
 				</div>
-			) : (
+			) : isSelected ? (
 				<Placeholder
 					label={__("Création d'un nouvel élément de la FAQ", "melplugin")}
 					instructions={__(
@@ -95,6 +95,8 @@ export default function Edit(props) {
 						placeholder={__("Réponse...")}
 					/>
 				</Placeholder>
+			) : (
+				<div>C'est probablement ce cas de figure qui pose problème ?</div>
 			)}
 		</div>
 	);
