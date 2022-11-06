@@ -29,9 +29,10 @@
 	content: "";
 	display: block;
 	width: 32px;
+	min-width: 32px;
 	height: 32px;
 	background-image: url(../../assets/img/faq-icon.svg);
-	background-repeat: none;
+	background-repeat: no-repeat;
 	background-size: cover;
 	transition: transform 0.25s ease-in-out;
 }
