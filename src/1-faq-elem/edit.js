@@ -96,7 +96,7 @@ export default function Edit(props) {
 					/>
 				</Placeholder>
 			) : (
-				<div>C'est probablement ce cas de figure qui pose problème ?</div>
+				<div>Veuillez saisir votre paire question/réponse.</div>
 			)}
 		</div>
 	);
