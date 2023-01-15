@@ -6,9 +6,6 @@
   "title": "MeL FAQ élément",
   "category": "common",
   "description": "Élément permettant de saisir une question et une réponse.",
-  "supports": {
-    "html": false
-  },
   "attributes": {
     "blockId": {
       "type": "string"
@@ -21,7 +18,7 @@
     "reponse": {
       "type": "string",
       "source": "html",
-      "selector": "div"
+      "selector": "div.mel-faq-elem--reponse"
     }
   },
   "textdomain": "melplugin",
